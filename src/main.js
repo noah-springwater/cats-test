@@ -3,12 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuefire from 'vuefire'
+import firebase from './service/firebase'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+
+Vue.use(Vuefire)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
+new Vue({ // eslint-disable-line no-new
   el: '#app',
+  firebase: {
+    cat: firebase.database.ref('cat')
+  },
   router,
   template: '<App/>',
   components: { App }
